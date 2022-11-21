@@ -48,6 +48,13 @@ namespace Excercise_3
                     newnode.next = newnode;
                     LAST = newnode;
                 }
+
+                //mulai proses pengurutan proses pengurutan data
+                else if (number < LAST.next.rollNumber)//node dari kiri
+                {
+                    newnode.next = LAST.next;
+                    LAST.next = newnode;
+                }
                 static void Main(string[] args)
                 {
                 }
