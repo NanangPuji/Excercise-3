@@ -55,7 +55,30 @@ namespace Excercise_3
                     newnode.next = LAST.next;
                     LAST.next = newnode;
                 }
-                static void Main(string[] args)
+                else if (number > LAST.rollNumber)//node dari kanan
+                {
+                    newnode.next = LAST.next;
+                    LAST.next = newnode;
+                    LAST = newnode;
+                }
+                //menambahkan node ditengah-tengah
+                else
+                {
+                    Node current, previous;
+                    current = previous = LAST.next;
+
+                    int i = 0;
+                    while (i < number - 1)
+                    {
+                        previous = current;
+                        current = current.next;
+                        i++;
+                    }
+                    newnode.next = current;
+                    previous.next = newnode;
+                }
+            }
+            static void Main(string[] args)
                 {
                 }
             }
