@@ -24,8 +24,21 @@ namespace Excercise_3
                 LAST = null;
             }
 
-            static void Main(string[] args)
+            //add node 
+            public void addnode()
             {
+                int number;
+                string nm;
+
+                //deklarasi element
+                Console.WriteLine("\nMasukkan No.Barang : ");
+                number = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\nMasukkan Nama Barang : ");
+                nm = Console.ReadLine();
+
+                static void Main(string[] args)
+                {
+                }
             }
         }
     }
