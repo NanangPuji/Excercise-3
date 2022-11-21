@@ -78,6 +78,19 @@ namespace Excercise_3
                     previous.next = newnode;
                 }
             }
+            //menambahkan method mencari data
+            public bool Search(int thn, ref Node previous, ref Node current)
+            {
+                for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
+                {
+                    if (thn == current.rollNumber)
+                        return true;//return true if the node is found
+                }
+                if (thn == LAST.rollNumber)
+                    return true;
+                else
+                    return (false);
+            }
             static void Main(string[] args)
                 {
                 }
