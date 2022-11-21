@@ -91,7 +91,24 @@ namespace Excercise_3
                 else
                     return (false);
             }
-            static void Main(string[] args)
+            //menambahkan method delete
+            public bool delNode(int number)
+            {
+                Node previous, current;
+                previous = current = LAST.next;
+
+                //mengecek spesifikasi isi nod sekarang masih ada didalam list atau tidak
+                if (Search(number, ref previous, ref current) == false)
+                    return false;
+                previous.next = current.next;
+
+                //proses mendelete data
+                if (LAST.next.rollNumber == LAST.rollNumber)
+                {
+                    LAST.next = null;
+                    LAST = null;
+                }
+                static void Main(string[] args)
                 {
                 }
             }
