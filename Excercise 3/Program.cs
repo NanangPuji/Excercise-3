@@ -136,7 +136,18 @@ namespace Excercise_3
                         Console.Write(currentNode.rollNumber + " " + currentNode.nama + "\n");
                         currentNode = currentNode.next;
                     }
-                    static void Main(string[] args)
+                    Console.Write(LAST.rollNumber + " " + LAST.nama + "\n");
+                }
+            }
+            public bool listempty()
+            {
+                if (LAST == null)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        static void Main(string[] args)
                 {
                 }
             }
