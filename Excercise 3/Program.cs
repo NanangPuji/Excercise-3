@@ -36,6 +36,18 @@ namespace Excercise_3
                 Console.WriteLine("\nMasukkan Nama Barang : ");
                 nm = Console.ReadLine();
 
+                Node newnode = new Node();
+
+                //membuat penyimpanan
+                newnode rollNumnber;
+                newnode.nama = nm;
+
+                //if list empty
+                if (listempty())
+                {
+                    newnode.next = newnode;
+                    LAST = newnode;
+                }
                 static void Main(string[] args)
                 {
                 }
