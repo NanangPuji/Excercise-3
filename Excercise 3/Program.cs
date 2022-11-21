@@ -147,8 +147,110 @@ namespace Excercise_3
                     return false;
             }
         }
-        static void Main(string[] args)
+        class Program
+        {
+            public void Demo()
+            {
+                Console.WriteLine("========================");
+                Console.WriteLine("----DATA BARANG ANDA----");
+                Console.WriteLine("========================");
+                Console.WriteLine("1. Add a record to the list");
+                Console.WriteLine("2. Delete a record from the list");
+                Console.WriteLine("3. View all records in list");
+                Console.WriteLine("4. Search for a record in the list");
+                Console.WriteLine("5. Exit\n");
+                Console.WriteLine("Enter your choice (1-6): ");
+            }
+            static void Main(string[] args)
+            {
+                Program menu = new Program();
+                CircularLinkedList data = new CircularLinkedList();
+                Node a = new Node();
+
+                while (true)
                 {
+                    try
+                    {
+                        Console.WriteLine();
+                        menu.Demo();
+                        char ch = Convert.ToChar(Console.ReadLine());
+
+                        switch (ch)
+                        {//add data
+                            case '1':
+                                {
+                                    data.addnode();
+                                }
+                                break;
+                            //del node
+                            case '2':
+                                {
+                                    if (data.listempty())
+                                    {
+                                        Console.WriteLine("\nlist is empty");
+                                        break;
+                                    }
+                                    //pencarian node list yang akan didelete
+                                    Console.Write("\nMasukkan No.Barang yang akan dihapus : ");
+                                    int value = Convert.ToInt32(Console.ReadLine());
+                                    Console.WriteLine();
+
+                                    //output data yang didelete node
+                                    if (data.delNode(value) == false)
+                                        Console.WriteLine("\nData tidak ditemukan");
+                                    else
+                                        Console.WriteLine("Data Barang dengan No" + value + "dihapus dari list");
+                                }
+                                break;
+                            //display
+                            case '3':
+                                {
+                                    data.display();
+                                }
+                                break;
+                            case '4':
+                                {
+                                    //if list empyty
+                                    if (data.listempty() == true)
+                                    {
+                                        Console.WriteLine("\nList is empty");
+                                        break;
+                                    }
+
+                                    //proses pencarian
+                                    Node previous, current;
+                                    previous = current = null;
+
+                                    Console.Write("\nMasukkan tahun pembelian yang dicari : ");
+                                    int value = Convert.ToInt32(Console.ReadLine());
+
+                                    //memulai pencarian
+                                    if (data.Search(value, ref previous, ref current) == false)
+                                        Console.WriteLine("\nData tidak ditemukan");
+                                    else//mencari output
+                                    {
+                                        Console.WriteLine("\n====================");
+                                        Console.WriteLine("----Data ditemukan----");
+                                        Console.WriteLine("====================\n");
+                                        Console.WriteLine("No.Barang       : " + current.rollNumber);
+                                        Console.WriteLine("Nama Barang     : " + current.nama);
+                                    }
+                                }
+                                break;
+                            case '5':
+                                return;
+                            default:
+                                {
+                                    Console.WriteLine("\ninvalid Option");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
         }
