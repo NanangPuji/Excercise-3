@@ -108,7 +108,35 @@ namespace Excercise_3
                     LAST.next = null;
                     LAST = null;
                 }
-                static void Main(string[] args)
+                else if (number == LAST.rollNumber)
+                {
+                    LAST.next = current.next;
+                }
+                else
+                {
+                    LAST = LAST.next;
+                }
+                return true;
+            }
+            //mendisplay atau traverse semua node di list
+            public void display()
+            {
+                //if list empty
+                if (listempty())
+                    Console.WriteLine("\nList Is Empty : ");
+                //menampilkan data
+                else
+                {
+                    Console.WriteLine("\nRecord in the list are : ");
+                    Node currentNode;
+
+                    currentNode = LAST.next;
+                    while (currentNode != LAST)
+                    {
+                        Console.Write(currentNode.rollNumber + " " + currentNode.nama + "\n");
+                        currentNode = currentNode.next;
+                    }
+                    static void Main(string[] args)
                 {
                 }
             }
